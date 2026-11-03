@@ -80,8 +80,8 @@ word embeddings, and modern language models.
 
 ## Project Links
 
-- [GitHub Repository](https://github.com/denisecase/nlp-03-text-exploration)
-- [Example Script](https://github.com/denisecase/nlp-03-text-exploration/blob/main/src/nlp/nlp_corpus_explore.py)
+- [GitHub Repository](https://github.com/BJean-0905/nlp-03-text-exploration)
+- [Example Script](https://github.com/BJean-0905/nlp-03-text-exploration/blob/main/src/nlp/nlp_corpus_explore.py)
 
 ## Project Resources
 
