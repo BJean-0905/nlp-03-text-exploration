@@ -272,9 +272,27 @@ bigram_freq_df: pl.DataFrame = (
 print("Top bigrams:")
 print(bigram_freq_df.head(10))
 
+# ============================================================
+# Section 9. Create Trigrams
+# ============================================================
+
+trigrams_list = []
+
+for doc in corpus:
+    tokens = tokenize(doc["text"])
+
+    for i in range(len(tokens) - 2):
+        trigrams_list.append((tokens[i], tokens[i + 1], tokens[i + 2]))
+
+trigram_df = pl.DataFrame({"trigram": [f"{a} {b} {c}" for a, b, c in trigrams_list]})
+
+trigram_freq_df = trigram_df.group_by("trigram").len().sort("len", descending=True)
+
+print("\nTop Trigrams:")
+print(trigram_freq_df.head(10))
 
 # ============================================================
-# Section 9. Visualize Token Frequencies
+# Section 10. Visualize Token Frequencies
 # ============================================================
 
 print("IMPORTANT: Close chart window to continue execution.")
@@ -308,7 +326,7 @@ plt.show()
 
 
 # ============================================================
-# Section 10. Interpret Results and Identify Patterns
+# Section 11. Interpret Results and Identify Patterns
 # ============================================================
 
 print("\nCASE GENERAL OBSERVATIONS:")

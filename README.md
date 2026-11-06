@@ -49,7 +49,9 @@ organized into four categories:
 Each document includes a category label
 and a short text passage.
 
-No external input dataset or web connection is required.
+The custom project dataset includes redacted data from a dating site, housed on Kaggle free datasets.
+Two attributes are present in this corpus, astrological sign and self description. The document
+total is 50.
 
 ## Approach
 
@@ -66,6 +68,7 @@ The example demonstrates:
 - Examining word co-occurrence using context windows.
 - Creating and counting bigrams.
 - Visualizing and interpreting token distributions.
+- Trigram Analysis
 
 Explore these important project components:
 
@@ -78,6 +81,9 @@ Explore these important project components:
 
 The goal is to observe structure in text
 before applying machine learning or language models.
+
+Technical modification includes the addition of Trigrams to the analysis,
+looking for trends in three token groupings.
 
 ## Run the Project
 
