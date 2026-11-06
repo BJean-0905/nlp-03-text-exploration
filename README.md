@@ -1,4 +1,4 @@
-# nlp-03-text-exploration
+# nlp-03-text-exploration-example project and custom project
 
 [![Python 3.14](https://img.shields.io/badge/python-3.14%2B-blue?logo=python)](pyproject.toml)
 [![CI](https://github.com/BJean-0905/nlp-03-text-exploration/actions/workflows/ci-python-zensical.yml/badge.svg)](https://github.com/BJean-0905/nlp-03-text-exploration/actions/workflows/ci-python-zensical.yml)
@@ -52,6 +52,7 @@ and a short text passage.
 The custom project dataset includes redacted data from a dating site, housed on Kaggle free datasets.
 Two attributes are present in this corpus, zodiac sign and self description. The document
 total is 50.
+![Zodiac Signs Categorical Data](image.png)
 
 ## Approach
 
@@ -90,6 +91,7 @@ looking for trends in three token groupings.
   - Stopword removal added
   - Zodiac Sign Distribution Analysis added
   - Stopword preservation for more natural bigram and trigram analysis added
+  - Create Notebook
 
 ## Run the Project
 
@@ -126,6 +128,8 @@ A `project.log` file is created in the project root.
 
 This confirms that the Python analysis executes
 and the logging system works.
+
+Notebook file: https://github.com/BJean-0905/nlp-03-text-exploration/blob/fe5ebe7106a7d25c1330d5aff68b2e1048bd3e7a/Notebooks/nlp_corpus_explore_datingsite.ipynb
 
 ## Verification
 
