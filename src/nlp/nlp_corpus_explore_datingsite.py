@@ -1,4 +1,4 @@
-"""nlp_corpus_explore.py - Module 3 Script.
+"""nlp_corpus_explore_datingsite.py - Module 3 Script.
 
 Author: Britany Goucher
 
