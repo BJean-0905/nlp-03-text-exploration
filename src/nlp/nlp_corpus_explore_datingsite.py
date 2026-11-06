@@ -84,9 +84,19 @@ for row in profiles_df.iter_rows(named=True):
 
 print(f"Corpus contains {len(corpus)} profiles.")
 
+# ============================================================
+# Section 3. Examine Dataset Composition
+# ============================================================
+
+sign_counts_df: pl.DataFrame = (
+    profiles_df.group_by("sign").len().sort(by="len", descending=True)
+)
+
+print("\nProfiles per Sign:")
+print(sign_counts_df)
 
 # ============================================================
-# Section 3. Tokenize and Clean Text
+# Section 4. Tokenize and Clean Text
 # ============================================================
 
 # Tokenization splits text into word-like units.
@@ -96,9 +106,74 @@ print(f"Corpus contains {len(corpus)} profiles.")
 # and stripping common punctuation. We also filter out very short tokens (length <= 2).
 # This simple tokenizer is sufficient for our small, controlled corpus.
 # Use the string strip() method to remove punctuation from the beginning and end of each token.
+# Remove stop words
+
+STOPWORDS = {
+    "a",
+    "an",
+    "and",
+    "the",
+    "for",
+    "of",
+    "to",
+    "in",
+    "on",
+    "at",
+    "with",
+    "from",
+    "about",
+    "that",
+    "this",
+    "these",
+    "those",
+    "have",
+    "has",
+    "had",
+    "you",
+    "your",
+    "you're",
+    "me",
+    "my",
+    "myself",
+    "i",
+    "i'm",
+    "i've",
+    "i'd",
+    "it",
+    "it's",
+    "was",
+    "were",
+    "are",
+    "am",
+    "be",
+    "been",
+    "being",
+    "just",
+    "very",
+    "really",
+    "like",
+    "love",
+    "but",
+    "not",
+    "can",
+    "will",
+    "would",
+    "some",
+    "more",
+}
+
+
 def tokenize(text: str) -> list[str]:
     """Tokenize the input text into a list of cleaned tokens."""
     tokens = text.lower().split()
+    tokens = [t.strip(".,:;!?()[]\"'") for t in tokens if len(t) > 2]
+    return [t for t in tokens if t not in STOPWORDS]
+
+
+def tokenize_phrases(text: str) -> list[str]:
+    """Tokenize text for phrase analysis without removing stopwords."""
+    tokens = text.lower().split()
+
     return [t.strip(".,:;!?()[]\"'") for t in tokens if len(t) > 2]
 
 
@@ -126,7 +201,7 @@ print(token_df.head(10))
 
 
 # ============================================================
-# Section 4. Compute Global Token Frequencies
+# Section 5. Compute Global Token Frequencies
 # ============================================================
 
 # Frequency distribution = how often each token appears.
@@ -143,7 +218,7 @@ print(global_freq_df.head(10))
 
 
 # ============================================================
-# Section 5. Compute Token Frequencies by Category
+# Section 6. Compute Token Frequencies by Category
 # ============================================================
 
 # Compare token usage across categories.
@@ -164,7 +239,7 @@ print(category_freq_df.head(12))
 
 
 # ============================================================
-# Section 6. Identify Top Tokens per Category
+# Section 7. Identify Top Tokens per Category
 # ============================================================
 
 # Show top tokens per category.
@@ -188,7 +263,7 @@ for category in token_df["category"].unique().to_list():
 
 
 # ============================================================
-# Section 7. Analyze Co-occurrence (Context Windows)
+# Section 8. Analyze Co-occurrence (Context Windows)
 # ============================================================
 
 # Co-occurrence examines which tokens appear near each other.
@@ -226,7 +301,7 @@ for target in sample_tokens:
     print(co_occurrence_dict[target][:10])
 
 # ============================================================
-# Section 8. Create Bigrams (Local Word Pairs) and Compute Frequencies
+# Section 9. Create Bigrams (Local Word Pairs) and Compute Frequencies
 # ============================================================
 
 # Bigrams combine each word with the next word in the text.
@@ -263,13 +338,13 @@ print("Top bigrams:")
 print(bigram_freq_df.head(20))
 
 # ============================================================
-# Section 9. Create Trigrams
+# Section 10. Create Trigrams
 # ============================================================
 
 trigrams_list = []
 
 for doc in corpus:
-    tokens = tokenize(doc["text"])
+    tokens = tokenize_phrases(doc["text"])
 
     for i in range(len(tokens) - 2):
         trigrams_list.append((tokens[i], tokens[i + 1], tokens[i + 2]))
@@ -287,7 +362,7 @@ print("\nTop Trigrams:")
 print(trigram_freq_df.head(20))
 
 # ============================================================
-# Section 10. Visualize Token Frequencies
+# Section 11. Visualize Token Frequencies
 # ============================================================
 
 print("IMPORTANT: Close chart window to continue execution.")
@@ -322,7 +397,7 @@ plt.show()
 
 
 # ============================================================
-# Section 11. Interpret Results and Identify Patterns
+# Section 12. Interpret Results and Identify Patterns
 # ============================================================
 
 print("\nBRITANY SPECIFIC OBSERVATIONS:")
