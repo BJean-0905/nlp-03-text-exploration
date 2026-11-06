@@ -403,13 +403,14 @@ plt.show()
 print("\nBRITANY SPECIFIC OBSERVATIONS:")
 
 print(
-    "- Aries profiles frequently referenced adventure, travel, and outdoor activities."
+    "Common Dating site themes appeared more clearly in the bigram and trigram analysis than in the single token analysis."
 )
-print("- Taurus profiles commonly mentioned food, cooking, and relaxing hobbies.")
-print("- Gemini profiles showed a wider variety of interests and social activities.")
-print("- Common bigrams included 'live music', 'road trips', and 'good food'.")
+print("Stopword removal improved token frequency clarity, but some context was lost.")
 print(
-    "- Trigram analysis revealed recurring themes related to travel, relationships, and personal interests."
+    "Multi-word expressions such as 'get along with' and 'being around people' were revealed in the Trigram analysis."
+)
+print(
+    "Sample size is small and limited sign specific conclusions. However, the analysis demonstrateshow structure emerges from token distributions, category comparisons, and co-occurrence patterns."
 )
 
 # ============================================================

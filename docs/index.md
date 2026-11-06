@@ -2,6 +2,14 @@
 
 Web Mining and Applied NLP | Project 03 | Example Report
 
+## Author
+
+Britany Goucher
+
+## Date
+
+2026 November
+
 ## Overview
 
 This project introduces exploratory analysis
@@ -18,9 +26,12 @@ structure in text can be studied
 before applying statistical language models
 or machine learning.
 
+The custom project utilizes a dataset from Kaggle,
+on dating site information by zodiac sign.
+
 ## Tools and Methods
 
-The project uses:
+The custom project uses:
 
 - Python for corpus exploration and analysis.
 - A small labeled corpus of text documents.
@@ -32,6 +43,8 @@ The project uses:
 - Logging for execution records.
 - Ruff, ty, and pytest for code verification.
 - Zensical and GitHub Pages for published documentation.
+- Trigram Analysis
+- Stopword removal
 
 The example corpus contains 22 documents
 organized into four categories:
@@ -39,6 +52,9 @@ dogs, cats, cars, and trucks.
 
 The analysis compares vocabulary across categories
 and examines which words appear near one another.
+
+The custom project corpus contains 50 documents
+organized into the 10 different zodiac signs.
 
 ## Verification
 
@@ -56,6 +72,10 @@ bigram frequencies, and visualizations.
 Automated tests provide additional verification
 of the project's expected behavior.
 
+![Custom Project Dating Site Bar Graph ](image.png)
+![Top 20 Trigrams Frequency Table](image-1.png)
+![Top 20 Bigrams Frequency Table](image-2.png)
+
 ## Interpretation
 
 Word frequencies provide information
@@ -71,6 +91,20 @@ These concepts help establish an understanding
 of distributional language patterns
 used in statistical NLP,
 word embeddings, and modern language models.
+
+## Custom Project Results
+
+With limited sample, at 50 documents, the sign specific analysis is limited.
+Trends were present with the bigram and trigram analysis that offered some impactful
+insights. "get along with","being around people", and "the bay area" were high result
+trigram results. Stopword removal did add more insight into the single token analysis.
+Instead of words like and, they, did, you now see words like people,life and friends.
+
+## Custom Project Recommendations
+
+Further analysis of the whole dataset would be very interesting to glean more
+meaningful analysis to trend by zodiac sign. Applying trigram analysis to this
+dataset appears to be a valuable step to include.
 
 ## Documentation Index
 

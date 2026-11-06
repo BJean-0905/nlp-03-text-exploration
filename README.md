@@ -15,7 +15,7 @@
 
 Author: Britany Goucher
 
-Date: 2026 October
+Date: 2026 November
 
 Third project in the Web Mining and Applied NLP course.
 
@@ -50,7 +50,7 @@ Each document includes a category label
 and a short text passage.
 
 The custom project dataset includes redacted data from a dating site, housed on Kaggle free datasets.
-Two attributes are present in this corpus, astrological sign and self description. The document
+Two attributes are present in this corpus, zodiac sign and self description. The document
 total is 50.
 
 ## Approach
@@ -85,6 +85,12 @@ before applying machine learning or language models.
 Technical modification includes the addition of Trigrams to the analysis,
 looking for trends in three token groupings.
 
+## Custom Project Enhancements
+  - Trigram Analysis added
+  - Stopword removal added
+  - Zodiac Sign Distribution Analysis added
+  - Stopword preservation for more natural bigram and trigram analysis added
+
 ## Run the Project
 
 Follow the [Professional Python Workflow Guide](https://denisecase.github.io/pro-analytics-02/)
@@ -93,7 +99,7 @@ to set up your machine and project environment.
 From a VS Code terminal in the project root:
 
 ```shell
-uv run python -m nlp.nlp_corpus_explore
+uv run python -m nlp.nlp_corpus_explore_datingsite
 ```
 
 Close each visualization window after viewing
@@ -128,6 +134,20 @@ Run the automated tests:
 ```shell
 uv run python -m pytest
 ```
+
+## Custom Project Results
+
+With limited sample, at 50 documents, the sign specific analysis is limited.
+Trends were present with the bigram and trigram analysis that offered some impactful
+insights. "get along with","being around people", and "the bay area" were high result
+trigram results. Stopword removal did add more insight into the single token analysis.
+Instead of words like and, they, did, you now see words like people,life and friends.
+
+## Custom Project Recommendations
+
+Further analysis of the whole dataset would be very interesting to glean more
+meaningful analysis to trend by zodiac sign. Applying trigram analysis to this
+dataset appears to be a valuable step to include.
 
 ## Project Documentation
 
